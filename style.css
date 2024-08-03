@@ -1,0 +1,99 @@
+:root {
+  --blue: navy;
+  --gold: darkgoldenrod;
+  --black: black;
+  --gray: #F5F5F5;
+  --title_text: Gill Sans, Arial;
+  --normal_text: Trebuchet MS;
+
+}
+
+
+/* The side navigation menu */
+.sidebar {
+	list-style-type: none;
+	margin-: 0;
+	padding: 0;
+	width: 200px;
+	background-color: var(--gray);
+	border: 1px solid gray;
+	position: fixed;
+	height: 96%;
+	overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+	display: block;
+	color: var(--blue);
+	padding: 20px;
+	font-family: var(--title_text);
+	font-weight: lighter;
+	text-decoration: none;
+	font-size: 1.4em;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  animation: linkhover 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes linkhover {
+	0% {
+		background-color: var(--gray);
+		color: var(--blue);
+	}
+	100% {
+		background-color: lightgray;
+		color: black;
+	}
+}
+
+div.content {
+	margin-left: 230px;
+}
+
+h1 {
+	color: var(--blue);
+	font-family: var(--title_text);
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+h2 {
+	color: var(--gold);
+	font-family: var(--title_text);
+	font-weight: normal;
+	border: 4x solid double red;
+}
+
+h3{
+	color: var(--black);
+	font-family: var(--title_text);
+	font-weight: normal;
+}
+
+.avatar {
+	float: right;
+	border-radius: 10%;
+	width: 200px;
+  	height: 200px;
+}
+
+
+.about_me p {
+	font-family: var(--normal_text)
+}
+
+.clear { 	
+	clear: both;
+}
+
+.intro p {
+	font-family: var(--normal_text)
+}
+
+p {
+	font-family: var(--normal_text)
+}
