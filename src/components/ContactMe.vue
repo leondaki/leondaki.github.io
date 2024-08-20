@@ -1,5 +1,5 @@
 <template>
-    <span class="p-8 pb-4 text-3xl font-bold" id="contactMe">Contact</span>
+    <h2 class="px-8 text-3xl font-bold" id="contactMe">Contact</h2>
 
 <div class="ml-8 mt-2">
     <div class="flex">

@@ -1,10 +1,11 @@
 <template>
-    <div class="flex flex-wrap justify-center">
-    <ProjectCard 
-      v-for="project in projects" 
-      :key="project.id" 
-      :project="project" 
-    />
+   <h2 class="px-8 text-3xl font-bold" id="contactMe">Projects</h2>
+  <div class="flex flex-wrap justify-center">
+  <ProjectCard 
+    v-for="project in projects" 
+    :key="project.id" 
+    :project="project" 
+  />
   </div>
 </template>
 
