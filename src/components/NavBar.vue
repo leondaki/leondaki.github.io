@@ -110,11 +110,7 @@ export default {
 
 .menuShow-enter-from .inner,
 .menuShow-leave-to .inner {
-<<<<<<< Updated upstream
-  opacity: 0;
-=======
   opacity: 0%;
->>>>>>> Stashed changes
   margin-left: -40px; 
 }
 
