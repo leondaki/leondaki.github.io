@@ -1,12 +1,20 @@
 <template>
+<<<<<<< Updated upstream
     <!-- <div class="max-w-md m-5 mx-auto overflow-hidden bg-yellow-200 shadow-md 
+=======
+    <div class="max-w-md m-5 mx-auto overflow-hidden bg-yellow-200 shadow-md 
+>>>>>>> Stashed changes
 		border-l-4 border-yellow-400 rounded-x2 md:max-w-2xl">
 		<div class="md:flex">
 			<div class="p-8">
 				Site is currently in development...
 			</div>
 		</div>
+<<<<<<< Updated upstream
 	</div> -->
+=======
+	</div>
+>>>>>>> Stashed changes
 
 	<div class="md:w-2/3 mx-auto mt-2">
 		<div class="pt-4 px-8 md:text-center md:mx-auto">
