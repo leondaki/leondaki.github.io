@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animated-background {
+    background-size: 200%;
+
+    -webkit-animation: animation 6s ease-in infinite;
+    -moz-animation: animation 6s ease-in infinite;
+    animation: animation 6s ease-in infinite;
+}
+
+@keyframes animation {
+    0% {
+        background-position: -50%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 150%;
+    }
+}

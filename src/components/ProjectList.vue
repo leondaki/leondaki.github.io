@@ -1,5 +1,5 @@
 <template>
-   <h2 class="px-8 text-3xl font-bold" id="contactMe">Projects</h2>
+   <h2 class="px-8 text-3xl font-bold" id="projects">Projects</h2>
   <div class="flex flex-wrap justify-center">
   <ProjectCard 
     v-for="project in projects" 
@@ -28,35 +28,42 @@ export default {
         projects: [
         {
           id: 0,
-          title: 'Poker App',
+          title: 'Poker Bet Tracker',
           date: 'Fall 2024 - Ongoing',
           description: 'Development of an iOS application to track poker bets.',
           imageUrl: poker1
         },
         {
           id: 1,
-          title: 'Lunar Mission',
+          title: 'Lunar Free Return Mission',
           date: 'December 2023',
           description: 'Mission creation and analysis of a free return lunar trajectory.',
           imageUrl: lunar1
         },
         {
           id: 2,
-          title: 'Scooter Design',
+          title: 'Routh Array Calculator',
+          date: 'October 2023',
+          description: 'Developed calculator to aid in system stability analysis.',
+          imageUrl: lunar1
+        },
+        {
+          id: 3,
+          title: 'Kick Scooter Design',
           date: 'March 2023 - April 2023',
           description: 'Design of a kick scooter with front wheel suspension.',
           imageUrl: scooter1
         },
         {
-          id: 3,
-          title: 'Origami Chess',
+          id: 4,
+          title: 'Origami Chess Set',
           date: 'January 2023 - April 2023',
           description: 'Design of a standard chess set folded out of paper.',
           imageUrl: chess1
         },
         {
-          id: 4,
-          title: 'Fluid Dynamics',
+          id: 5,
+          title: 'Fluid Dynamics Modeling',
           date: 'December 2022',
           description: 'Modeling of the evolution of a fluid velocity profile over time',
           imageUrl: lunar2

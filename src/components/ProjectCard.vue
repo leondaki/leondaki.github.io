@@ -1,9 +1,10 @@
 <template>
-    <div class="mx-auto md:h-40 bg-white rounded-xl md:max-w-2xl w-5/6 overflow-hidden mt-8 
+    <div class="mx-8 md:h-40 bg-white rounded-xl 
+	md:max-w-md w-5/6 overflow-hidden mt-8
 		transition-colors ease-in-out duration-700 border-2 border-gray-200 hover:border-gray-400">
 			<a href="#" class="md:flex">
 				<div class="md:shrink-0">
-					<img class="md:h-40 md:w-44 object-cover" :src="project.imageUrl" alt="...">
+					<img class="md:h-40 md:w-44 h-80 w-full object-cover" :src="project.imageUrl" alt="...">
 				</div>
 
 				<div class="p-4 w-full">
