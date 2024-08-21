@@ -1,8 +1,11 @@
 <template>
      <div class="mx-8 md:h-40 bg-white rounded-xl 
-	md:max-w-md w-5/6 overflow-hidden mt-8 
-		transition-colors ease-in-out duration-700 border-2 border-gray-200 hover:border-gray-400">
-			<button @click="$emit('toggleModal')" href="#" class="md:flex cursor-pointer text-left">
+		md:max-w-md w-5/6 overflow-hidden mt-8 
+		transition-colors ease-in-out duration-500 
+		border-2 border-gray-200 hover:border-gray-400">
+			<button 
+			@click="$emit('toggleModal')" 
+			class="md:flex cursor-pointer text-left">
 				<div class="md:shrink-0">
 					<img class="md:h-40 md:w-44 h-80 w-full object-cover" :src="project.imageUrl" alt="...">
 				</div>
@@ -20,6 +23,9 @@
 <script>
 export default {
   props: {
+	modalToShow: {
+      type: Int32Array
+    },
     project: {
       type: Object,
       required: true

@@ -6,15 +6,15 @@
     v-for="project in projects" 
     :key="project.id" 
     :project="project" 
-    @toggleModal="toggleModal"
+    @toggleModal="toggleModal(project.id)"
   />
 
   <ProjectModal 
     v-for="project_detail in project_details"
     :key="project_detail.id" 
     :project_detail="project_detail" 
-    :modalActive="modalActive" 
-    @toggleModal="toggleModal"/>
+    :modalActive="selectedID == project_detail.id" 
+    @closeModal="closeModal"/>
 </template>
 
 
@@ -49,7 +49,7 @@ export default {
         //Add more project objects as needed
       ]);
     
-      const project_details = ref([
+    const project_details = ref([
         {
           id: 1,
           title: 'Poker Bet Tracker',
@@ -74,19 +74,26 @@ export default {
           • Used vary/achieve GMAT functionalty along with its differential solver to iteravely test various \
           translunar injection burns and trajectories',
           results: '\
-          •  Calculated the required delta v required to place the spacecraft\
+          •  Calculated the required Δv required to place the spacecraft\
           on its free return trajectory, as well as the position of the burn \n \
           • Mission requirements of time, perilune distance, and fuel use were satisfied'
         }
         //Add more project detail objects as needed
       ])
-    const modalActive = ref(false);
 
-    const toggleModal = () => {
-      modalActive.value = !modalActive.value;
+    
+    const selectedID = ref(2);
+
+    const closeModal = () => {
+      selectedID.value = ref(null);
     }
 
-    return { projects, project_details, modalActive, toggleModal };
+    const toggleModal = (projectID) => {
+      selectedID.value = projectID
+    }
+
+    return { projects, project_details, selectedID, 
+      toggleModal , closeModal };
   },
   components: {
       ProjectCard,

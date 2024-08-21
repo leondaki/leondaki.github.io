@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gradblue: '#2577fa',  // Example blue color
-        gradgreen: '#10b981',  // Example green color
+        gradblue: '#2577fa',  
+        gradgreen: '#10b981',  
       },
       translate: {
         "2.25": "0.52rem"
