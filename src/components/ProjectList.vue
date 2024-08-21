@@ -22,7 +22,7 @@
 import {ref} from 'vue'
 import ProjectCard from './ProjectCard.vue';
 
-import lunar1 from '@/assets/test.jpg';
+import lunar1 from '@/assets/lunar_1.png';
 import ProjectModal from './ProjectModal.vue';
 // import lunar2 from '@/assets/test.jpg';
 // import scooter1 from '@/assets/test.jpg';
@@ -62,6 +62,7 @@ export default {
           id: 2,
           title: 'Free Return Lunar Mission',
           date: 'December 2023',
+          imageUrl: lunar1,
           objectives: '\
           • Design a free return lunar trajectory mission requiring only one engine burn, \
           sending a spacecraft to the moon in such a way that it will naturally swing around the moon and return to earth \n \
