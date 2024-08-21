@@ -1,7 +1,7 @@
 <template>
   <NavBar/>
   <TitleBlock/>
-  <ProjectList @toggleBg="toggleBg"/>
+  <ProjectList/>
   <AboutMe/>
   <ContactMe/>
   <MyFooter/>
@@ -34,7 +34,7 @@ export default {
     ProjectList,
     AboutMe,
     ContactMe,
-    MyFooter
+    MyFooter,
   }
 }
 </script>

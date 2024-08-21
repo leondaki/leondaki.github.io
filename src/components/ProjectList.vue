@@ -1,6 +1,6 @@
 <template>
   <h2 class="px-8 text-3xl font-bold" id="projects">Projects</h2>
-  <div class="flex flex-wrap justify-center mx-8">
+  <div class="flex flex-wrap justify-center">
     <ProjectCard 
       v-for="project in projects" 
       :key="project.id" 
@@ -10,10 +10,10 @@
   </div>
 
   <ProjectModal 
-    v-for="project_detail in project_details"
-    :key="project_detail.id" 
-    :project_detail="project_detail" 
-    :modalActive="selectedID == project_detail.id" 
+  v-for="project in projects" 
+    :key="project.id" 
+    :project="project" 
+    :modalActive="selectedID == project.id" 
     @closeModal="closeModal"/>
 </template>
 
@@ -23,8 +23,13 @@ import {ref} from 'vue'
 import ProjectCard from './ProjectCard.vue';
 
 import lunar1 from '@/assets/lunar_1.png';
+import lunar2 from '@/assets/lunar_2.png';
+import lunar3 from '@/assets/lunar_3.png';
+import lunar4 from '@/assets/lunar_4.png';
+import lunar5 from '@/assets/lunar_5.png';
+
 import ProjectModal from './ProjectModal.vue';
-// import lunar2 from '@/assets/test.jpg';
+import sunset1 from '@/assets/sunset_1.png';
 import scooter1 from '@/assets/scooter_1.png';
 import chess1 from '@/assets/chess_1.png';
 // import poker1 from '@/assets/test.jpg';
@@ -33,35 +38,29 @@ export default {
   setup() {
    const projects = ref([
         {
+          id: 1,
+          title: 'Power Recovery Process',
+          date: 'June 2024 - August 2024',
+          description: 'Development of automation process to recover power in Bloom Energy modules',
+          imageUrls: [sunset1],
+          objectives: '\
+          • Goal was to more efficiently recover power remotely in Bloom \
+          Energy\'s power modules upon a drop in power levels \n \
+          • Ensure power modules are kept within operating limits during the process',
+          methods: ' \
+          • Process was developed using Python, the Pandas library and OSI PI \n \
+          • Flowcharts were constructed to assist in designing the code ',
+          results: '\
+          • Automation process saves over 100 hours of manual work per year \n \
+          • Process decreases time to recover power fin modules from weeks to a few days \n \
+          • Operators can initiate process by clicking a single button',
+        },
+        {
           id: 2,
           title: 'Free Return Lunar Mission',
           date: 'December 2023',
           description: 'Design of a free return lunar trajectory.',
-          imageUrl: lunar1
-        },
-        {
-          id: 3,
-          title: 'Kick Scooter Design',
-          date: 'March 2023 - April 2023',
-          description: 'Design of an original kick scooter with front wheel suspension.',
-          imageUrl: scooter1
-        },
-        {
-          id: 4,
-          title: 'Origami Chess Set',
-          date: 'January 2023 - April 2023',
-          description: 'Design of an original origami chess set.',
-          imageUrl: chess1
-        },
-        //Add more project objects as needed
-      ]);
-    
-    const project_details = ref([
-        {
-          id: 2,
-          title: 'Free Return Lunar Mission',
-          date: 'December 2023',
-          imageUrl: lunar1,
+          imageUrls: [lunar1, lunar2, lunar3, lunar4, lunar5],
           objectives: '\
           • Design a free return lunar trajectory mission requiring only one engine burn, \
           sending a spacecraft to the moon in such a way that it will naturally swing around the moon and return to earth \n \
@@ -82,7 +81,8 @@ export default {
           id: 3,
           title: 'Kick Scooter Design',
           date: 'March 2023 - April 2023',
-          imageUrl: scooter1,
+          description: 'Design of an original kick scooter with front wheel suspension.',
+          imageUrls: [scooter1],
           objectives: '\
           • Design an original kick scooter with front wheel suspension\n \
           • Satisfy strength requirements, given deflection limits \n \
@@ -99,7 +99,8 @@ export default {
           id: 4,
           title: 'Origami Chess Set',
           date: 'January 2023 - April 2023',
-          imageUrl: chess1,
+          description: 'Design of an original origami chess set.',
+          imageUrls: [chess1],
           objectives: '\
           • Design the complete standard 32 piece chess set to be folded out of paper \n \
           • Maintain distinct profiles for each of the six piece types to ensure recognizibility,\
@@ -115,11 +116,10 @@ export default {
           • Video showcase of final set <a href="https://www.youtube.com/watch?v=RilnBviIWbY&t=218s" \
 				  class="text-gray-600 hover:underline font-semibold">here</a>'
         },
-        //Add more project detail objects as needed
-      ])
-
+        //Add more project objects as needed
+      ]);
     
-    const selectedID = ref(null);
+    const selectedID = ref(2);
 
     const closeModal = () => {
       selectedID.value = ref(null);
@@ -131,7 +131,6 @@ export default {
 
     return { 
       projects, 
-      project_details,
       selectedID, 
       toggleModal ,
       closeModal };

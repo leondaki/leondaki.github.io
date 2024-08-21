@@ -3,9 +3,9 @@
 		<div class="px-8">
             <span class="text-3xl font-bold" id="aboutMe">About Me</span>
             <div class="block md:inline-block font-normal text-gray-900">
-                <div class="my-4 w-48 h-48 mx-auto md:float-right md:pl-4 md:my-0 ">
+                <!-- <div class="my-4 w-48 h-48 mx-auto md:float-right md:pl-4 md:my-0 ">
                     <img class="rounded-xl overflow-hidden w-fit" :src="myPfp" alt="Profile Picture">
-                </div>
+                </div> -->
                 <p class="mt-2 text-gray-500 dark:text-gray-400 text-pretty">
                     I am a <span class="font-semibold text-gray-900 underline dark:text-white decoration-blue-500">curious</span>
                     and <span class="font-semibold text-gray-900 underline dark:text-white decoration-blue-500">efficient</span> individual, 

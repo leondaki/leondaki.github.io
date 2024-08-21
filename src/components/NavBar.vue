@@ -3,7 +3,7 @@
   <div class="flex justify-between items-center">
     <div>
       <a href="#">
-        <h1 class="font-light text-3xl font-monotext-gray-700 
+        <h1 class="font-light text-3xl text-gray-700 
         hover:text-blue-600 transition duration-300 ease-in-out">LK</h1>
       </a>
     </div>
@@ -32,32 +32,41 @@
     <div v-show="isOpen" class="md:!flex md:h-8">
       <div class="pt-2 md:p-0 md:!flex md:space-x-8 justify-between">
 
-        <div class="inner flex items-center
-        hover:border-gray-500 hover:rounded-md 
-        border border-transparent md:hover:border-transparent hover:text-blue-600
-        cursor-pointer transition-all duration-200 ease-in-out">
-            <a href="#projects" class="block font-light 
-            py-2 px-4">Projects</a>
-        </div>
-       
-        <div class="inner flex items-center
-        hover:border-gray-500 hover:rounded-md 
-        border border-transparent md:hover:border-transparent hover:text-blue-600
-        cursor-pointer transition-all duration-200 ease-in-out">
-            <a href="#aboutMe" class="block font-light 
-            py-2 px-4">About Me</a>
-        </div>
-       
-        <div class="inner flex items-center
-        hover:border-gray-500 hover:rounded-md 
-        border border-transparent md:hover:border-transparent hover:text-blue-600
-        cursor-pointer transition-all duration-200 ease-in-out">
-            <a href="#contactMe" class="block font-light 
-            py-2 px-4">Contact</a>
-        </div>  
-        </div>     
-      </div>
-    </Transition>
+        <a class="inner sm:flex items-center 
+        border border-transparent
+      hover:border-gray-500 rounded-md w-full 
+      hover:text-blue-600 sm:hover:border-transparent
+        cursor-pointer font-light 
+        py-2 px-4 block
+        transition-all duration-200 ease-in-out"
+        href="#projects">
+          Projects
+        </a>
+
+        <a class="inner sm:flex items-center 
+        border border-transparent
+      hover:border-gray-500 rounded-md w-full 
+      hover:text-blue-600 sm:hover:border-transparent
+        cursor-pointer font-light 
+        py-2 px-4 block
+        transition-all duration-200 ease-in-out"
+        href="#aboutMe">
+          About&nbsp;Me
+        </a>
+
+        <a class="inner sm:flex items-center 
+        border border-transparent
+      hover:border-gray-500 rounded-md w-full 
+      hover:text-blue-600 sm:hover:border-transparent
+        cursor-pointer font-light 
+        py-2 px-4 block
+        transition-all duration-200 ease-in-out"
+        href="#contactMe">
+          Contact
+        </a>
+      </div>     
+    </div>
+  </Transition>
 </header>
 
 </template>
