@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxHeight: {
+        "90v": "90vh",
+      },
       colors: {
         gradblue: '#2577fa',  
         gradgreen: '#10b981',  

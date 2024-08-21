@@ -63,12 +63,14 @@
 </template>
 
 <script>
+import {ref} from 'vue'
+
 export default {
-  data() {
-    return {
-      isOpen: false,
-      shouldAnimate: false
-    }
+  setup() {
+    const isOpen = ref(false)
+    const shouldAnimate = ref(false)
+
+    return { isOpen, shouldAnimate };
   },
   mounted() {
     this.checkScreenSize();

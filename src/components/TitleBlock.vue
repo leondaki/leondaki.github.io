@@ -3,7 +3,7 @@
 		border-l-4 border-yellow-400 rounded-x2 md:max-w-2xl">
 		<div class="md:flex">
 			<div class="p-8">
-				Site is currently in development...
+				Site is currently in development...				
 			</div>
 		</div>
 	</div>
