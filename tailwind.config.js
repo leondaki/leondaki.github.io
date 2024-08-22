@@ -9,6 +9,7 @@ module.exports = {
       maxHeight: {
         "70v": "70vh",
         "80v": "80vh",
+        "85v": "85vh",
       },
       colors: {
         gradblue: '#2577fa',  

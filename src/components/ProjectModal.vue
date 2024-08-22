@@ -9,48 +9,55 @@
      <!-- Modal Content -->
     <div v-if="modalActive" 
       class="inner p-4 sm:p-5 bg-white rounded-md 
-      w-5/6 h-fit max-h-80v mx-auto my-auto overflow-scroll
+      w-5/6 h-fit max-h-85v mx-auto my-auto overflow-scroll
       inset-x-0 inset-y-0 fixed shadow-lg">
   
       <!-- Project Title and Close Button -->
-      <div class="flex justify-between items-center mb-2">
-        <h3 class="text-xl sm:text-3xl font-bold">
-          {{ project.title }}
-        </h3>
-
+      <div class="flex justify-between items-start mb-2">
+        <div class="block">
+          <h3 class="text-xl sm:text-3xl font-bold">
+            {{ project.title }}
+          </h3>
+          <h4 class="text-xl font-extralight">
+            {{ project.date }}
+          </h4>
+        </div>
    
-          <button 
-            @click="$emit('closeModal')" 
-            class="pb-2 absolute top-4 right-4 group h-8 w-8">
-              <span class="rotate-45 translate-y-2.25 bg-gray-400
-              transition-all duration-200 ease-in-out 
-              group-hover:bg-gray-700 block w-8 h-0.5 my-1.5"></span>
-              <span class="-rotate-45 bg-gray-400
-              transition-all duration-200 ease-in-out 
-              group-hover:bg-gray-700 block w-8 h-0.5 my-1.5"></span>  
-          </button>
+        <button 
+          @click="$emit('closeModal')" 
+          class="pb-2 group h-8 w-8">
+            <span class="rotate-45 translate-y-2.25 bg-gray-400
+            transition-all duration-200 ease-in-out 
+            group-hover:bg-gray-700 block w-8 h-0.5 my-1.5"></span>
+            <span class="-rotate-45 bg-gray-400
+            transition-all duration-200 ease-in-out 
+            group-hover:bg-gray-700 block w-8 h-0.5 my-1.5"></span>  
+        </button>
 
       </div>
   
-      <div class="sm:flex">
+      <div class="md:flex">
         <!-- Project Pictures -->
         <ImageCarousel 
         :projectImages="project.imageUrls"
+        :projectCaptions="project.imageCaptions"
         />
-<hr>
+
         <!-- Project Details -->
-        <div class="mx-4 sm:border-l sm:border-gray-600">
-          <div class="sm:mt-0 mt-4">
+        <div class="mx-4 md:border-l sm:border-gray-600 mt-2">
+          <div class="">
             <div class="sm:w-full sm:px-4">
               <h3 class="font-semibold">Objectives</h3>
-              <p class="whitespace-pre-line text-gray-500 text-md">
+              <p class="whitespace-pre-line text-gray-500 text-md text-justify
+              sm:text-left">
                 {{ project.objectives }}
               </p>
             </div>
 
             <div class=" sm:w-full mt-4 sm:px-4">
               <h3 class="font-semibold">Methods</h3>
-              <p class="whitespace-pre-line text-gray-500 text-md">
+              <p class="whitespace-pre-line text-gray-500 text-md text-justify
+              sm:text-left">
                 {{ project.methods }}
               </p> 
             </div>
@@ -58,7 +65,8 @@
             <div class=" sm:w-full mt-4 sm:px-4">
               <h3 class="font-semibold">Results</h3>
               <p v-html="project.results"
-              class="whitespace-pre-line text-gray-500 text-md"></p>
+              class="whitespace-pre-line text-gray-500 text-md text-justify
+              sm:text-left"></p>
             </div>
           </div>
         </div>

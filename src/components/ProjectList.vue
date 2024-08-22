@@ -1,6 +1,11 @@
 <template>
-  <h2 class="px-8 text-3xl font-bold" id="projects">Projects</h2>
+  <h2 class="px-8 pt-8 text-3xl font-bold" id="projects">Projects</h2>
+  <p class="mt-2 px-8 text-gray-500 dark:text-gray-400 text-pretty">
+      Listed below are a selection of some of my projects from the past few years.
+      Click on any one of the cards below to learn more about the project!
+    </p>
   <div class="flex flex-wrap justify-center">
+   
     <ProjectCard 
       v-for="project in projects" 
       :key="project.id" 
@@ -43,6 +48,7 @@ export default {
           date: 'June 2024 - August 2024',
           description: 'Development of automation process to recover power in Bloom Energy modules',
           imageUrls: [sunset1],
+          imageCaptions: [''],
           objectives: '\
           • Goal was to more efficiently recover power remotely in Bloom \
           Energy\'s power modules upon a drop in power levels \n \
@@ -61,9 +67,15 @@ export default {
           date: 'December 2023',
           description: 'Design of a free return lunar trajectory.',
           imageUrls: [lunar1, lunar2, lunar3, lunar4, lunar5],
+          imageCaptions: [ 
+            'Overview of final trajectory', 
+            'Burn location and departure path of spacecraft', 
+            'Table of GMAT differential solver results showing the calculated Δv value', 
+            'Top view of entire spacecraft path along with orbital path of Moon', 
+            'Mission timetable highlighting key events'],
           objectives: '\
           • Design a free return lunar trajectory mission requiring only one engine burn, \
-          sending a spacecraft to the moon in such a way that it will naturally swing around the moon and return to earth \n \
+          sending a spacecraft to the moon in such a way that it will naturally swing around the Moon and return to Earth \n \
           • Determine the location and direction of the applied burn. \n \
           • Satisfy mission duration, perilune distance, and fuel use requirement \n \
           • Tabulate the mission timeline',
@@ -83,6 +95,7 @@ export default {
           date: 'March 2023 - April 2023',
           description: 'Design of an original kick scooter with front wheel suspension.',
           imageUrls: [scooter1],
+          imageCaptions: ['', '', '', '', ''],
           objectives: '\
           • Design an original kick scooter with front wheel suspension\n \
           • Satisfy strength requirements, given deflection limits \n \
@@ -101,6 +114,7 @@ export default {
           date: 'January 2023 - April 2023',
           description: 'Design of an original origami chess set.',
           imageUrls: [chess1],
+          imageCaptions: ['', '', '', '', ''],
           objectives: '\
           • Design the complete standard 32 piece chess set to be folded out of paper \n \
           • Maintain distinct profiles for each of the six piece types to ensure recognizibility,\

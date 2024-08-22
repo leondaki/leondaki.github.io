@@ -33,4 +33,6 @@
 			Welcome to my portfolio site, where you can find some of my recent projects as well as information about me!
 		</p>
 	</div>
+
+	<hr>
 </template>
