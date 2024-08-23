@@ -1,7 +1,7 @@
 <template>
   <div 
   :class="lockBg ? 'w-screen h-screen overflow-hidden' : 'none'">
- <p class="bg-white uppercase p-4 fixed top-0 z-20 ">Lock Bg? {{ lockBg }}</p>
+ <!-- <p class="bg-white uppercase p-4 fixed top-0 z-20 ">Lock Bg? {{ lockBg }}</p> -->
     <NavBar/>
     <TitleBlock/>
     <ProjectList @lockBg="lockBg"/>

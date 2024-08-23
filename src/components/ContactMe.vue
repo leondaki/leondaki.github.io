@@ -1,5 +1,6 @@
 <template>
-    <h2 class="px-8 text-3xl font-bold" id="contactMe">Contact</h2>
+
+<h2 class="px-8 text-3xl font-bold" id="contactMe">Contact Info</h2>
 
 <div class="ml-8 mt-2">
     <div class="flex">
@@ -53,4 +54,5 @@
         <a class="px-2 text-gray-500 hover:underline" href="https://github.com/leondaki/">My Github</a>
     </div>
 </div>
+
 </template>

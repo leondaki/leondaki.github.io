@@ -1,4 +1,5 @@
 <template>
+  <div class="bg-gray-100 pb-12">
   <h2 class="px-8 pt-8 text-3xl font-bold" id="projects">Projects</h2>
   <p class="mt-2 px-8 text-gray-500 dark:text-gray-400 text-pretty">
       Listed below are a selection of some of my projects from the past few years.
@@ -20,6 +21,8 @@
     :project="project" 
     :modalActive="selectedID == project.id" 
     @closeModal="closeModal"/>
+
+</div>
 </template>
 
 
@@ -29,15 +32,21 @@ import {ref} from 'vue'
 import ProjectCard from './ProjectCard.vue';
 import ProjectModal from './ProjectModal.vue';
 
+import sunset1 from '@/assets/sunset_1.png';
+
 import lunar1 from '@/assets/lunar_1.png';
 import lunar2 from '@/assets/lunar_2.png';
 import lunar3 from '@/assets/lunar_3.png';
 import lunar4 from '@/assets/lunar_4.png';
 import lunar5 from '@/assets/lunar_5.png';
 
-
-import sunset1 from '@/assets/sunset_1.png';
 import scooter1 from '@/assets/scooter_1.png';
+import scooter2 from '@/assets/scooter_2.png';
+import scooter3 from '@/assets/scooter_3.png';
+import scooter4 from '@/assets/scooter_4.png';
+import scooter5 from '@/assets/scooter_5.png';
+import scooter6 from '@/assets/scooter_6.png';
+import scooter7 from '@/assets/scooter_7.png';
 
 import chess1 from '@/assets/chess_1.png';
 import chess2 from '@/assets/chess_2.png';
@@ -75,7 +84,7 @@ export default {
           id: 2,
           title: 'Free Return Lunar Mission',
           date: 'December 2023',
-          description: 'Design of a free return lunar trajectory.',
+          description: 'Plotting a free return lunar trajectory for a spacecraft.',
           imageUrls: [lunar1, lunar2, lunar3, lunar4, lunar5],
           imageCaptions: [ 
             'Overview of final trajectory', 
@@ -103,9 +112,16 @@ export default {
           id: 3,
           title: 'Kick Scooter Design',
           date: 'March 2023 - April 2023',
-          description: 'Design of an original kick scooter with front wheel suspension.',
-          imageUrls: [scooter1],
-          imageCaptions: ['', '', '', '', ''],
+          description: 'Modeling and analysis of a kick scooter with front wheel suspension.',
+          imageUrls: [scooter1, scooter2, scooter3, scooter4, scooter5, scooter6, scooter7],
+          imageCaptions: [
+            'The completed kick scooter design', 
+            '2D Drawing of the scooter platform', 
+            '2D Drawing of the handlebar', 
+            '2D Drawing of the front wheel connector, for use in the suspension system', 
+            'FEM anaysis of the handlbar deflection for a given horizontal force',
+            'FEM analysis of the platform deflection on application of a given vertical load',
+            'Bill of materials for the scooter, with a price $52 under budget limit'],
           objectives: '\
           • Design an original kick scooter with front wheel suspension\n \
           • Satisfy strength requirements, given deflection limits \n \
@@ -122,7 +138,7 @@ export default {
           id: 4,
           title: 'Origami Chess Set',
           date: 'January 2023 - April 2023',
-          description: 'Design of an original origami chess set.',
+          description: 'Design of a complete standard chess set made out of paper.',
           imageUrls: [chess1, chess2, chess3, chess4, chess5, chess6 ],
           imageCaptions: [
           'A selection of the completed chess pieces', 

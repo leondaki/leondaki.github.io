@@ -31,10 +31,10 @@
     </div>
           
     <div class= "w-80 md:w-96 h-24 md:h-30 flex items-start
-    justify-around mt-2 mx-auto">
+    justify-around mt-2 mx-auto ">
     <button @click='prevPic' 
         :class="(imageCount==1) ? 'hidden' :
-        'h-8 block w-8 hover:text-blue-500 rounded-full bg-white transition duration-200 ease-in-out'">
+        'h-8 block w-8  text-gray-400 hover:text-gray-700 rounded-full bg-white transition duration-200 ease-in-out'">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
         </svg>
@@ -60,7 +60,7 @@
 
         <button @click='nextPic' 
         :class="(imageCount==1) ? 'hidden' :
-        'h-8 block w-8 hover:text-blue-500 rounded-full bg-white transition duration-200 ease-in-out'">
+        'h-8 block w-8 text-gray-400 hover:text-gray-700 rounded-full bg-white transition duration-200 ease-in-out'">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
         </svg>

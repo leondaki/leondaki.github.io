@@ -18,7 +18,7 @@
 					</h3>
 					
 					<div class="text-sm font-light tracking-wide text-black">{{project.date}}<br><br></div>
-					<p class="mt-2 text-gray-500 text-md">{{project.description}}</p>
+					<p class="mt-2 text-gray-500 text-md text-pretty">{{project.description}}</p>
 				</div>
 			</button>
 	</div>

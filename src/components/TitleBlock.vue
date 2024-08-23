@@ -1,12 +1,12 @@
 <template>
-    <div class="max-w-md m-5 mx-auto overflow-hidden bg-yellow-200 shadow-md 
+    <!-- <div class="max-w-md m-5 mx-auto overflow-hidden bg-yellow-200 shadow-md 
 		border-l-4 border-yellow-400 rounded-x2 md:max-w-2xl">
 		<div class="md:flex">
 			<div class="p-8">
 				Site is currently in development...				
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="md:w-2/3 mx-auto mt-2">
 		<div class="pt-4 px-8 sm:text-center sm:mx-auto">
