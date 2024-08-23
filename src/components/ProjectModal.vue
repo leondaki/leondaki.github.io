@@ -4,21 +4,23 @@
     v-show="modalActive"
     class="outer fixed w-full h-full left-0 top-0 bg-gray-800 bg-opacity-70"></div>
   </Transition>
-  
+
   <Transition name="modal-animation-inner">
      <!-- Modal Content -->
     <div v-if="modalActive" 
-      class="inner p-4 sm:p-5 bg-white rounded-md 
-      w-5/6 h-fit max-h-85v mx-auto my-auto overflow-scroll
-      inset-x-0 inset-y-0 fixed shadow-lg">
+      class="inner bg-white 
+      overflow-scroll 
+      inset-x-0 inset-y-0 fixed ">
   
       <!-- Project Title and Close Button -->
-      <div class="flex justify-between items-start mb-2">
+      <div class="flex fixed justify-between py-4 px-8 w-full
+      bg-gray-200 z-10 ">
+        <!--Title and Date-->
         <div class="block">
-          <h3 class="text-xl sm:text-3xl font-bold">
+          <h3 class="text-xl md:text-3xl font-bold">
             {{ project.title }}
           </h3>
-          <h4 class="text-xl font-extralight">
+          <h4 class="text-md md:text-xl font-extralight">
             {{ project.date }}
           </h4>
         </div>
@@ -36,7 +38,8 @@
 
       </div>
   
-      <div class="md:flex">
+      <!-- Project Picturs and Details -->
+      <div class="md:flex md:px-28 mt-40 mb-36">
         <!-- Project Pictures -->
         <ImageCarousel 
         :projectImages="project.imageUrls"
@@ -44,33 +47,46 @@
         />
 
         <!-- Project Details -->
-        <div class="mx-4 md:border-l sm:border-gray-600 mt-2">
+        <div class="mx-4 mt-2 md:mt-0">
           <div class="">
-            <div class="sm:w-full sm:px-4">
-              <h3 class="font-semibold">Objectives</h3>
-              <p class="whitespace-pre-line text-gray-500 text-md text-justify
-              sm:text-left">
+            <div class="sm:w-full px-4">
+              <h3 class="font-semibold md:text-xl ">Objectives</h3>
+              <p class="whitespace-pre-line text-gray-500 text-md 
+              lg:text-left md:text-lg  sm:text-justify">
                 {{ project.objectives }}
               </p>
             </div>
 
-            <div class=" sm:w-full mt-4 sm:px-4">
-              <h3 class="font-semibold">Methods</h3>
-              <p class="whitespace-pre-line text-gray-500 text-md text-justify
-              sm:text-left">
+            <div class=" sm:w-full mt-4 md:mt-8 px-4">
+              <h3 class="font-semibold md:text-xl ">Methods</h3>
+              <p class="whitespace-pre-line text-gray-500 text-md 
+              lg:text-left md:text-lg sm:text-justify">
                 {{ project.methods }}
               </p> 
             </div>
 
-            <div class=" sm:w-full mt-4 sm:px-4">
-              <h3 class="font-semibold">Results</h3>
+            <div class=" sm:w-full mt-4 md:mt-8 px-4">
+              <h3 class="font-semibold md:text-xl ">Results</h3>
               <p v-html="project.results"
-              class="whitespace-pre-line text-gray-500 text-md text-justify
-              sm:text-left"></p>
+              class="whitespace-pre-line text-gray-500 text-md 
+              lg:text-left md:text-lg sm:text-justify"></p>
             </div>
           </div>
         </div>
-      </div>    
+      </div>   
+
+     <!--Close Modal Button-->
+      <div class="flex fixed bottom-0 
+      bg-gray-200 justify-between p-4 w-full">
+          <button 
+            @click="$emit('closeModal')" 
+            class="py-2 px-4 border mx-auto 
+             bg-black hover:bg-gray-800 text-white
+            transition ease-in-out duration-200
+            rounded-md">
+              Close
+          </button>
+        </div> 
     
     </div>
   </Transition>

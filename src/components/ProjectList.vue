@@ -10,7 +10,7 @@
       v-for="project in projects" 
       :key="project.id" 
       :project="project" 
-      @toggleModal="toggleModal(project.id); $emit('toggleBg')"
+      @openModal="openModal(project.id)"
     />
   </div>
 
@@ -25,7 +25,9 @@
 
 <script>
 import {ref} from 'vue'
+
 import ProjectCard from './ProjectCard.vue';
+import ProjectModal from './ProjectModal.vue';
 
 import lunar1 from '@/assets/lunar_1.png';
 import lunar2 from '@/assets/lunar_2.png';
@@ -33,22 +35,30 @@ import lunar3 from '@/assets/lunar_3.png';
 import lunar4 from '@/assets/lunar_4.png';
 import lunar5 from '@/assets/lunar_5.png';
 
-import ProjectModal from './ProjectModal.vue';
+
 import sunset1 from '@/assets/sunset_1.png';
 import scooter1 from '@/assets/scooter_1.png';
+
 import chess1 from '@/assets/chess_1.png';
+import chess2 from '@/assets/chess_2.png';
+import chess3 from '@/assets/chess_3.png';
+import chess4 from '@/assets/chess_4.png';
+import chess5 from '@/assets/chess_5.png';
+import chess6 from '@/assets/chess_6.png';
+
 // import poker1 from '@/assets/test.jpg';
 
 export default {
-  setup() {
+  setup(props, {emit}) {
    const projects = ref([
         {
           id: 1,
           title: 'Power Recovery Process',
           date: 'June 2024 - August 2024',
-          description: 'Development of automation process to recover power in Bloom Energy modules',
+          description: 'Development of automation process to recover power in Bloom Energy modules.',
           imageUrls: [sunset1],
-          imageCaptions: [''],
+          imageCaptions: ['This project contains confidential information that is \
+          property of Bloom Energy so pictures are omitted'],
           objectives: '\
           • Goal was to more efficiently recover power remotely in Bloom \
           Energy\'s power modules upon a drop in power levels \n \
@@ -75,7 +85,7 @@ export default {
             'Mission timetable highlighting key events'],
           objectives: '\
           • Design a free return lunar trajectory mission requiring only one engine burn, \
-          sending a spacecraft to the moon in such a way that it will naturally swing around the Moon and return to Earth \n \
+          launching a spacecraft in such a way that it will naturally swing around the Moon and return to Earth \n \
           • Determine the location and direction of the applied burn. \n \
           • Satisfy mission duration, perilune distance, and fuel use requirement \n \
           • Tabulate the mission timeline',
@@ -113,8 +123,14 @@ export default {
           title: 'Origami Chess Set',
           date: 'January 2023 - April 2023',
           description: 'Design of an original origami chess set.',
-          imageUrls: [chess1],
-          imageCaptions: ['', '', '', '', ''],
+          imageUrls: [chess1, chess2, chess3, chess4, chess5, chess6 ],
+          imageCaptions: [
+          'A selection of the completed chess pieces', 
+          'Earliest prototype design',
+          'Next prototype design',
+          'Further prototype progression',
+          'Design progression of the Knight', 
+          'A view of the completed set'],
           objectives: '\
           • Design the complete standard 32 piece chess set to be folded out of paper \n \
           • Maintain distinct profiles for each of the six piece types to ensure recognizibility,\
@@ -133,21 +149,31 @@ export default {
         //Add more project objects as needed
       ]);
     
-    const selectedID = ref(2);
+    const selectedID = ref(null);
+
+    const modalOpen = ref(false); 
 
     const closeModal = () => {
       selectedID.value = ref(null);
+      modalOpen.value = false;
+      emitLockBg();
     }
 
-    const toggleModal = (projectID) => {
+    const openModal = (projectID) => {
       selectedID.value = projectID
+      modalOpen.value = true;
+      emitLockBg();
+    }
+
+    function emitLockBg() {
+      emit('lockBg', modalOpen)
     }
 
     return { 
       projects, 
       selectedID, 
-      toggleModal ,
-      closeModal };
+      openModal ,
+      closeModal } ;
   },
   components: {
       ProjectCard,

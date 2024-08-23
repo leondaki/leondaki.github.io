@@ -1,10 +1,15 @@
 <template>
-  <NavBar/>
-  <TitleBlock/>
-  <ProjectList/>
-  <AboutMe/>
-  <ContactMe/>
-  <MyFooter/>
+  <div 
+  :class="lockBg ? 'w-screen h-screen overflow-hidden' : 'none'">
+ <p class="bg-white uppercase p-4 fixed top-0 z-20 ">Lock Bg? {{ lockBg }}</p>
+    <NavBar/>
+    <TitleBlock/>
+    <ProjectList @lockBg="lockBg"/>
+    <AboutMe/>
+    <ContactMe/>
+    <MyFooter/>
+
+  </div>
 </template>
 
 <script>
@@ -20,13 +25,9 @@ import MyFooter from './components/MyFooter.vue';
 export default {
   name: 'App',
   setup() {
-    const modalBg = ref(false); 
+      const lockBg = ref(false);
 
-    const toggleBg = () => {
-      modalBg.value = !modalBg.value
-    }
-
-    return { modalBg, toggleBg }
+      return { lockBg };
   },
   components: {
     NavBar,
