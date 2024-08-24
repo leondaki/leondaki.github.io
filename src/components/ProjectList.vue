@@ -1,11 +1,13 @@
 <template>
   <div class="bg-gray-100 pb-12">
-  <h2 class="px-8 pt-8 text-3xl font-bold" id="projects">Projects</h2>
-  <p class="mt-2 px-8 text-gray-500 dark:text-gray-400 text-pretty">
-      Listed below are a selection of some of my projects from the past few years.
-      Click on any one of the cards below to learn more about the project!
-    </p>
-  <div class="flex flex-wrap justify-center">
+    <h2 class="px-8 pt-8 text-3xl font-bold target:scroll-mt-12" 
+    id="projects">Projects</h2>
+
+    <p class="mt-2 px-8 text-gray-500 dark:text-gray-400 text-pretty">
+        Listed below are various projects I have worked on from the past few years.
+        Click on any one of the cards below to learn more!
+      </p>
+    <div class="flex flex-wrap justify-center">
    
     <ProjectCard 
       v-for="project in projects" 
@@ -16,23 +18,23 @@
   </div>
 
   <ProjectModal 
-  v-for="project in projects" 
+    v-for="project in projects" 
     :key="project.id" 
     :project="project" 
     :modalActive="selectedID == project.id" 
-    @closeModal="closeModal"/>
+    @closeModal="closeModal()"/>
 
 </div>
 </template>
 
 
 <script>
-import {ref} from 'vue'
+import {ref, onMounted, onBeforeUnmount } from 'vue'
 
 import ProjectCard from './ProjectCard.vue';
 import ProjectModal from './ProjectModal.vue';
 
-import sunset1 from '@/assets/sunset_1.png';
+import bloom1 from '@/assets/bloom_1.jpg';
 
 import lunar1 from '@/assets/lunar_1.png';
 import lunar2 from '@/assets/lunar_2.png';
@@ -48,16 +50,17 @@ import scooter5 from '@/assets/scooter_5.png';
 import scooter6 from '@/assets/scooter_6.png';
 import scooter7 from '@/assets/scooter_7.png';
 
-import chess1 from '@/assets/chess_1.png';
+import chess1 from '@/assets/chess_1.jpg';
 import chess2 from '@/assets/chess_2.png';
-import chess3 from '@/assets/chess_3.png';
-import chess4 from '@/assets/chess_4.png';
+import chess3 from '@/assets/chess_3.jpg';
+import chess4 from '@/assets/chess_4.jpg';
 import chess5 from '@/assets/chess_5.png';
 import chess6 from '@/assets/chess_6.png';
 
 // import poker1 from '@/assets/test.jpg';
 
 export default {
+  emits: ['toggleBgLock'],
   setup(props, {emit}) {
    const projects = ref([
         {
@@ -65,7 +68,7 @@ export default {
           title: 'Power Recovery Process',
           date: 'June 2024 - August 2024',
           description: 'Development of automation process to recover power in Bloom Energy modules.',
-          imageUrls: [sunset1],
+          imageUrls: [bloom1],
           imageCaptions: ['This project contains confidential information that is \
           property of Bloom Energy so pictures are omitted'],
           objectives: '\
@@ -101,7 +104,7 @@ export default {
           methods: '\
           • Simulated theoretical trajectory using NASA\'s General Mission Analysis Tool (GMAT) \n \
           • Used real predicted positions of the Earth and Moon during given launch date \n \
-          • Used vary/achieve GMAT functionalty along with its differential solver to iteravely test various \
+          • Used vary/achieve GMAT functionalty along with its differential solver to iteratively test various \
           translunar injection burns and trajectories',
           results: '\
           •  Calculated the required Δv required to place the spacecraft\
@@ -111,7 +114,7 @@ export default {
         {
           id: 3,
           title: 'Kick Scooter Design',
-          date: 'March 2023 - April 2023',
+          date: 'March 2023 - May 2023',
           description: 'Modeling and analysis of a kick scooter with front wheel suspension.',
           imageUrls: [scooter1, scooter2, scooter3, scooter4, scooter5, scooter6, scooter7],
           imageCaptions: [
@@ -154,7 +157,7 @@ export default {
           • Create pieces with color accents',
           methods: '\
           • Derived each piece design from the traditional origami bird base for consistency \n \
-          • Folded multiple versions of each piece to refine its design and enure satisfactory aesthetics and reasonable folding time \n \
+          • Folded multiple versions of each piece to refine its design and ensure satisfactory aesthetics and reasonable folding time \n \
           • Compared heights of each piece with real chess pieces to establish correct relative piece heights',
           results: '\
           • Folded a complete set of origami chess pieces out of two sided colored paper \n \
@@ -165,31 +168,45 @@ export default {
         //Add more project objects as needed
       ]);
     
+    const windowTop = ref(0);
+
+    const onScroll = () => {
+      windowTop.value = window.scrollY;
+    };
+
+    onMounted(() => {
+      window.addEventListener('scroll', onScroll);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('scroll', onScroll);
+    });
+
     const selectedID = ref(null);
 
     const modalOpen = ref(false); 
 
+    let storedPosition = 0;
+
     const closeModal = () => {
-      selectedID.value = ref(null);
+      emit('toggleBgLock', storedPosition);
       modalOpen.value = false;
-      emitLockBg();
-    }
+      selectedID.value = ref(null);
+    }      
 
     const openModal = (projectID) => {
+      emit('toggleBgLock', windowTop.value);
+      storedPosition = windowTop.value
       selectedID.value = projectID
       modalOpen.value = true;
-      emitLockBg();
-    }
-
-    function emitLockBg() {
-      emit('lockBg', modalOpen)
     }
 
     return { 
       projects, 
       selectedID, 
       openModal ,
-      closeModal } ;
+      closeModal, 
+      windowTop } ;
   },
   components: {
       ProjectCard,

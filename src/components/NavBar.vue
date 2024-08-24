@@ -1,5 +1,8 @@
 <template>
-<header class="bg-gray-300 px-8 py-4 md:flex md:justify-between">
+<header 
+ref="navBar" 
+class="fixed lg:static w-full top-0 bg-gray-200 
+px-8 py-4 md:flex md:justify-between shadow-md">
   <div class="flex justify-between items-center">
     <div>
       <a href="#">
@@ -32,10 +35,12 @@
     <div v-show="isOpen" class="md:!flex md:h-8">
       <div class="pt-2 md:p-0 md:!flex md:space-x-8 justify-between">
 
-        <a class="inner sm:flex items-center 
+        <a 
+        @click="menuOff" 
+        class="inner sm:flex items-center 
         border border-transparent
-      hover:border-gray-500 rounded-md w-full 
-      hover:text-blue-600 sm:hover:border-transparent
+       w-full hover:bg-gray-300
+      hover:text-blue-600 
         cursor-pointer font-light 
         py-2 px-4 block
         transition-all duration-200 ease-in-out"
@@ -43,10 +48,12 @@
           Projects
         </a>
 
-        <a class="inner sm:flex items-center 
+        <a 
+        @click="menuOff" 
+        class="inner sm:flex items-center 
         border border-transparent
-      hover:border-gray-500 rounded-md w-full 
-      hover:text-blue-600 sm:hover:border-transparent
+        w-full hover:bg-gray-300
+      hover:text-blue-600 
         cursor-pointer font-light 
         py-2 px-4 block
         transition-all duration-200 ease-in-out"
@@ -54,10 +61,12 @@
           About&nbsp;Me
         </a>
 
-        <a class="inner sm:flex items-center 
+        <a 
+        @click="menuOff" 
+        class="inner sm:flex items-center 
         border border-transparent
-      hover:border-gray-500 rounded-md w-full 
-      hover:text-blue-600 sm:hover:border-transparent
+       w-full hover:bg-gray-300
+      hover:text-blue-600 
         cursor-pointer font-light 
         py-2 px-4 block
         transition-all duration-200 ease-in-out"
@@ -68,10 +77,27 @@
     </div>
   </Transition>
 </header>
+<!-- 
+<div @click="jump" class="fixed bottom-8 right-8">
+  <button class="block w-20 h-20 border border-blue-500 text-gray-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+      </svg>
+    </button>
+</div> -->
 
+<!-- <div @click="jump" class="fixed bottom-6 right-6">
+<button
+        class="h-12 block w-12 text-gray-400 hover:text-blue-600 rounded-full bg-white transition duration-200 ease-in-out'">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+      </svg>
+        </button>
+      </div> -->
 </template>
 
 <script>
+import { onMounted, onBeforeUnmount } from 'vue';
 import {ref} from 'vue'
 
 export default {
@@ -79,26 +105,46 @@ export default {
     const isOpen = ref(false)
     const shouldAnimate = ref(false)
 
-    return { isOpen, shouldAnimate };
-  },
-  mounted() {
-    this.checkScreenSize();
-    window.addEventListener('resize', this.checkScreenSize)
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.checkScreenSize)
-  },
-  methods: {
-    toggleMenu() {
-       this.isOpen = !this.isOpen
-       this.shouldAnimate = true;
-    },
-    checkScreenSize() {
+    const navBar = ref(null)
+
+    const menuOff = () => {
+      isOpen.value = false
+
+    }
+
+    const toggleMenu = () => {
+       isOpen.value = !isOpen.value
+       shouldAnimate.value = true;
+    }
+
+    const checkScreenSize = () => {
       if (window.innerWidth > 768) {
-        this.isOpen = false;
-        this.shouldAnimate = false;
+        isOpen.value = false;
+        shouldAnimate.value = false;
       }
     }
+
+    const handleClickOutside = (e) => {
+      if (navBar.value && !navBar.value.contains(e.target)) {
+        isOpen.value = false;
+      }
+    }
+
+    onMounted(() =>  {
+      window.addEventListener('resize', checkScreenSize)
+      document.addEventListener('click', handleClickOutside);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', checkScreenSize)
+      document.removeEventListener('click', handleClickOutside);
+    });
+
+    const jump = () => {
+      window.scrollTo(0, 0)
+    }
+
+    return { isOpen, menuOff, shouldAnimate, navBar, toggleMenu, jump };
   }
 }
 </script>

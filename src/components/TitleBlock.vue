@@ -8,7 +8,7 @@
 		</div>
 	</div> -->
 
-	<div class="md:w-2/3 mx-auto mt-2">
+	<div class="md:w-2/3 mx-auto mt-20 lg:mt-3">
 		<div class="pt-4 px-8 sm:text-center sm:mx-auto">
 			<h1 class="
 			text-4xl sm:text-5xl font-bold inline-block text-transparent bg-clip-text

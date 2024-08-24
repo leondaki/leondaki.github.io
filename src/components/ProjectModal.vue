@@ -1,6 +1,6 @@
 <template>
   <Transition name="modal-animation">
-    <div @click="$emit('closeModal')"
+    <div 
     v-show="modalActive"
     class="outer fixed w-full h-full left-0 top-0 bg-gray-800 bg-opacity-70"></div>
   </Transition>
@@ -99,7 +99,7 @@ import ImageCarousel from './ImageCarousel.vue';
 export default {
   props: {
     modalActive: {
-        type: Boolean
+      type: Boolean
     },
     project: {
       type: Object,
