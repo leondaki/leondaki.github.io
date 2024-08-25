@@ -4,6 +4,7 @@ module.exports = {
     'public/index.html',
     'src/**/*.{vue,js,ts,jsx,tsx}'
   ],
+  darkMode: 'media',
   theme: {
     extend: {
       maxHeight: {
@@ -20,6 +21,9 @@ module.exports = {
       },
       transitionProperty: {
         'w': 'width'
+      },
+      scrollMargin: {
+        '22': "88px"
       },
     },
 

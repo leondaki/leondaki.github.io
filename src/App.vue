@@ -1,6 +1,6 @@
 <template>
   <div :style="lockBgStyle">
-    <NavBar/>
+    <NavBar @clickedLink="setJumpLocation"/>
     <TitleBlock/>
     <ProjectList @toggleBgLock="toggleBgLock"/>
     <AboutMe/>

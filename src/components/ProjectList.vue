@@ -1,30 +1,28 @@
 <template>
-  <div class="bg-gray-100 pb-12">
-    <h2 class="px-8 pt-8 text-3xl font-bold target:scroll-mt-12" 
-    id="projects">Projects</h2>
+  <div class="bg-gray-100 dark:bg-zinc-800 pb-12 scroll-mt-[10svh] lg:scroll-mt-0" id="projects">
+    <h2 class="px-8 pt-6 text-3xl font-bold dark:text-gray-400">Projects</h2>
 
-    <p class="mt-2 px-8 text-gray-500 dark:text-gray-400 text-pretty">
+    <p class="mt-2 px-8 text-gray-500 text-pretty dark:text-gray-500">
         Listed below are various projects I have worked on from the past few years.
         Click on any one of the cards below to learn more!
       </p>
+    
     <div class="flex flex-wrap justify-center">
-   
-    <ProjectCard 
+      <ProjectCard 
+        v-for="project in projects" 
+        :key="project.id" 
+        :project="project" 
+        @openModal="openModal(project.id)"/>
+    </div>
+
+    <ProjectModal 
       v-for="project in projects" 
       :key="project.id" 
       :project="project" 
-      @openModal="openModal(project.id)"
-    />
+      :modalActive="selectedID == project.id" 
+      @closeModal="closeModal()"/>
+
   </div>
-
-  <ProjectModal 
-    v-for="project in projects" 
-    :key="project.id" 
-    :project="project" 
-    :modalActive="selectedID == project.id" 
-    @closeModal="closeModal()"/>
-
-</div>
 </template>
 
 
@@ -182,7 +180,8 @@ export default {
       window.removeEventListener('scroll', onScroll);
     });
 
-    const selectedID = ref(null);
+
+    const selectedID = ref(0);
 
     const modalOpen = ref(false); 
 
@@ -205,8 +204,7 @@ export default {
       projects, 
       selectedID, 
       openModal ,
-      closeModal, 
-      windowTop } ;
+      closeModal } ;
   },
   components: {
       ProjectCard,

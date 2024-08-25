@@ -8,15 +8,15 @@
   <Transition name="modal-animation-inner">
      <!-- Modal Content -->
     <div v-if="modalActive" 
-      class="inner bg-white 
-      overflow-scroll 
+      class="inner bg-white dark:bg-zinc-700
+      overflow-scroll z-50
       inset-x-0 inset-y-0 fixed ">
   
       <!-- Project Title and Close Button -->
       <div class="flex fixed justify-between py-4 px-8 w-full
-      bg-gray-200 z-10 ">
+      bg-gray-200 z-10 dark:bg-zinc-800 dark:text-gray-300">
         <!--Title and Date-->
-        <div class="block">
+        <div class="block ">
           <h3 class="text-xl md:text-3xl font-bold">
             {{ project.title }}
           </h3>
@@ -27,19 +27,19 @@
    
         <button 
           @click="$emit('closeModal')" 
-          class="pb-2 group h-8 w-8">
+          class="pb-2 group h-8 w-8 ">
             <span class="rotate-45 translate-y-2.25 bg-gray-400
             transition-all duration-200 ease-in-out 
-            group-hover:bg-gray-700 block w-8 h-0.5 my-1.5"></span>
+            group-hover:bg-gray-700 dark:group-hover:bg-gray-300 block w-8 h-0.5 my-1.5"></span>
             <span class="-rotate-45 bg-gray-400
             transition-all duration-200 ease-in-out 
-            group-hover:bg-gray-700 block w-8 h-0.5 my-1.5"></span>  
+            group-hover:bg-gray-700 dark:group-hover:bg-gray-300 block w-8 h-0.5 my-1.5"></span>  
         </button>
 
       </div>
   
-      <!-- Project Picturs and Details -->
-      <div class="md:flex md:px-28 mt-40 mb-36">
+      <!-- Project Pictures and Details -->
+      <div class="md:flex md:px-28 mt-32 mb-36">
         <!-- Project Pictures -->
         <ImageCarousel 
         :projectImages="project.imageUrls"
@@ -50,25 +50,25 @@
         <div class="mx-4 mt-2 md:mt-0">
           <div class="">
             <div class="sm:w-full px-4">
-              <h3 class="font-semibold md:text-xl ">Objectives</h3>
-              <p class="whitespace-pre-line text-gray-500 text-md 
+              <h3 class="font-semibold md:text-xl dark:text-gray-300">Objectives</h3>
+              <p class="whitespace-pre-line text-gray-500 dark:text-gray-400 text-md 
               lg:text-left md:text-lg  sm:text-justify">
                 {{ project.objectives }}
               </p>
             </div>
 
             <div class=" sm:w-full mt-4 md:mt-8 px-4">
-              <h3 class="font-semibold md:text-xl ">Methods</h3>
-              <p class="whitespace-pre-line text-gray-500 text-md 
+              <h3 class="font-semibold md:text-xl dark:text-gray-300">Methods</h3>
+              <p class="whitespace-pre-line text-gray-500 dark:text-gray-400 text-md 
               lg:text-left md:text-lg sm:text-justify">
                 {{ project.methods }}
               </p> 
             </div>
 
             <div class=" sm:w-full mt-4 md:mt-8 px-4">
-              <h3 class="font-semibold md:text-xl ">Results</h3>
+              <h3 class="font-semibold md:text-xl dark:text-gray-300">Results</h3>
               <p v-html="project.results"
-              class="whitespace-pre-line text-gray-500 text-md 
+              class="whitespace-pre-line text-gray-500 dark:text-gray-400 text-md 
               lg:text-left md:text-lg sm:text-justify"></p>
             </div>
           </div>
@@ -77,11 +77,14 @@
 
      <!--Close Modal Button-->
       <div class="flex fixed bottom-0 
-      bg-gray-200 justify-between p-4 w-full">
+      bg-gray-200 justify-between p-4 w-full
+      dark:bg-zinc-800">
           <button 
             @click="$emit('closeModal')" 
-            class="py-2 px-4 border mx-auto 
-             bg-black hover:bg-gray-800 text-white
+            class="py-2 px-4 mx-auto 
+             bg-black dark:bg-gray-300 
+             hover:bg-gray-800
+             dark:hover:bg-gray-400 text-white dark:text-zinc-800
             transition ease-in-out duration-200
             rounded-md">
               Close
