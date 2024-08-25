@@ -15,13 +15,14 @@ px-8 py-4 md:flex md:justify-between shadow-md">
     <div class="md:hidden flex items-center">
       <button @click="toggleMenu" class="h-8 w-8 group">
         <span 
-        :class="isOpen ? 'transition-all duration-300 ease-in-out rotate-45 \
-        translate-y-2.25 group-hover:bg-red-600' : 
-        'transition-all duration-300 ease-in-out group-hover:bg-blue-600'" 
-        class="block w-8 h-0.5 bg-gray-700 dark:bg-gray-400 my-1.5 "></span>
+        :class="isOpen ? 'transition duration-300 ease-in-out rotate-45 \
+        group-hover:bg-red-600 translate-y-2.25' : 
+        'transition duration-300 ease-in-out group-hover:bg-blue-600'" 
+        class="block w-8 h-0.5 bg-gray-700 dark:bg-gray-400 my-1.5"></span>
+        
         <span 
-        :class="isOpen ? 'transition-all duration-100 ease-in-out w-0' : 
-        'transition-all duration-300 ease-in-out w-8 group-hover:bg-blue-600'" 
+        :class="isOpen ? 'transition-all duration-500 ease-in-out w-0' : 
+        'transition-all duration-500 ease-in-out w-8 group-hover:bg-blue-600'" 
         class="block h-0.5 bg-gray-700 dark:bg-gray-400 my-1.5"></span>
         <span 
         :class="isOpen ? 'transition duration-300 ease-in-out -rotate-45 \

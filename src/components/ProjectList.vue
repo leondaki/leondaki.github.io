@@ -161,7 +161,7 @@ export default {
           • Folded a complete set of origami chess pieces out of two sided colored paper \n \
           • Pieces incorporate color accent, contributing to aesthetic \n \
           • Video showcase of final set <a href="https://www.youtube.com/watch?v=RilnBviIWbY&t=218s" \
-				  class="text-gray-600 hover:underline font-semibold">here</a>'
+				  class="text-gray-600 underline font-semibold">here</a>'
         },
         //Add more project objects as needed
       ]);

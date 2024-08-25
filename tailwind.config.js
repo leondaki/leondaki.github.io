@@ -17,6 +17,8 @@ module.exports = {
         gradgreen: '#10b981',  
       },
       translate: {
+        "0.75": "3px",
+        "1.25": "5px",
         "2.25": "0.52rem"
       },
       transitionProperty: {
@@ -25,6 +27,9 @@ module.exports = {
       scrollMargin: {
         '22': "88px"
       },
+      scale: {
+        "102": "1.02"
+      }
     },
 
   },

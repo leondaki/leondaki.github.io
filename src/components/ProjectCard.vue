@@ -1,5 +1,5 @@
 <template>
-     <div class="mx-8 bg-white dark:bg-gray-200 hover:scale-105 rounded-xl 
+     <div class="mx-8 bg-white dark:bg-gray-200 hover:scale-102 rounded-xl 
 		sm:max-w-lg w-5/6 overflow-hidden mt-8 
 		transition ease-in-out duration-300 
 		shadow-md hover:shadow-lg">
